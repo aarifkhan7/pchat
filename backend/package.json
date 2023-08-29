@@ -1,0 +1,38 @@
+{
+  "name": "messenger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "server": "nodemon server.js",
+    "socket": "nodemon ./socket/socket.js",
+    
+    "dev": "concurrently \"npm run server\"  \"npm run socket\" ", 
+    "build":"npm i"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@material/linear-progress": "^14.0.0",
+    "@mui/material": "^5.14.6",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "concurrently": "^8.2.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "formidable": "^3.5.1",
+    "jsonwebtoken": "^9.0.1",
+    "mathjs": "^11.10.0",
+    "mongoose": "^7.4.5",
+    "nodemailer": "^6.9.4",
+    "nodemon": "^3.0.1",
+    "socket.io": "^4.7.2",
+    "stream": "^0.0.2",
+    "validator": "^13.11.0"
+  }
+}
