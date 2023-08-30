@@ -13,6 +13,13 @@ dotenv.config({
      path : 'config/config.env'
 })
 
+
+app.use(cors({
+     origin: 'https://64ef5e08ccf8d416dcf23ea1--jolly-klepon-da4877.netlify.app', // Replace with your frontend domain
+   }));
+
+
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use('/api/messenger',authRouter);
