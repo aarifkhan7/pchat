@@ -8,7 +8,7 @@ import authRouter from './routes/authRoute.js'
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import messengerRoute from './routes/messengerRoute.js';
-
+import cors from 'cors';
 dotenv.config({
      path : 'config/config.env'
 })
