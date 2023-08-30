@@ -15,7 +15,7 @@ dotenv.config({
 
 
 app.use(cors({
-     origin: 'https://64ef5e08ccf8d416dcf23ea1--jolly-klepon-da4877.netlify.app', // Replace with your frontend domain
+     origin: '*', // Replace with your frontend domain
    }));
 
 
