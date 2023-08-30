@@ -1,3 +1,4 @@
+const cors=require("cors");
 const io = require('socket.io')(8000,{
      cors : {
           origin : '*',

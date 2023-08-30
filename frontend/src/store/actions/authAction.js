@@ -1,7 +1,10 @@
 import axios from 'axios';
 import {REGISTER_FAIL,REGISTER_SUCCESS,USER_LOGIN_SUCCESS,USER_LOGIN_FAIL,PROFILE_CHANGE_SUCCESS,PROFILE_CHANGE_FAIL,PROFILE_IMG_CHANGE,OTP_SENT} from "../types/authType";
 import {getFriends} from "./messengerAction.js";
+const backendURL = 'https://pchat-7eq6.onrender.com';
 export const userRegister = (data) => {
+
+
      return async (dispatch) => {
 
           const config = {
@@ -10,7 +13,7 @@ export const userRegister = (data) => {
                } 
           }
           try{
-               const response = await axios.post('/api/messenger/user-register',data,config);
+               const response = await axios.post(`${backendURL}/api/messenger/user-register`,data,config);
                localStorage.setItem('authToken',response.data.token);
 
                dispatch({
@@ -43,7 +46,7 @@ export const userLogin = (data) => {
         }
 
         try {
-            const response = await axios.post('/api/messenger/user-login', data, config);
+            const response = await axios.post(`${backendURL}/api/messenger/user-login`, data, config);
             localStorage.setItem('authToken', response.data.token);
             dispath({
                 type: USER_LOGIN_SUCCESS,
@@ -65,7 +68,7 @@ export const userLogin = (data) => {
 
 export const userLogout = () => async(dispatch) => {
      try{
-         const response = await axios.post('/api/messenger/user-logout');
+         const response = await axios.post(`${backendURL}/api/messenger/user-logout`);
          if(response.data.success){
              localStorage.removeItem('authToken');
              dispatch({
@@ -87,7 +90,7 @@ export const deleteMyAccount=(data)=>async(dispatch)=>{
     }
 try{
    
-    const response=await axios.post(`/api/messenger/deleteMyAccount`, {
+    const response=await axios.post(`${backendURL}/api/messenger/deleteMyAccount`, {
        
         body: data
       });
@@ -107,7 +110,7 @@ export const profileImgUpdate=(data)=>async(dispatch)=>{
         }
         try{console.log(data);
          
-             const response = await axios.post('/api/messenger/user-profile_img_update',data,config);
+             const response = await axios.post(`${backendURL}/api/messenger/user-profile_img_update`,data,config);
              localStorage.setItem('authToken',response.data.token);
             //  console.log(response);
              dispatch({
@@ -149,7 +152,7 @@ export const sendOtpEmail=(data)=>async(dispatch)=>{
     console.log("data is"+data);
     try {
         console.log("data is"+data);
-        const response = await axios.post('/api/messenger/sendotp', {
+        const response = await axios.post(`${backendURL}/api/messenger/sendotp`, {
             body:data
         });
         if(response.data.status==='OTP_SEND_SUCCESS'){

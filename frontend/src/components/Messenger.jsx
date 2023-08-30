@@ -58,7 +58,7 @@ const [profileImgSocket, setProfileImgSocket]=useState('');
  const [typingMessage, setTypingMessage] = useState('');
 
  useEffect(() => {
-    socket.current = io('ws://localhost:8000');
+    socket.current = io('wss://pchat-7eq6.onrender.com/');
     socket.current.on('getMessage',(data) => {
         setSocketMessage(data);
     })
